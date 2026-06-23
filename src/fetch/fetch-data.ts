@@ -21,7 +21,7 @@ export async function fetchStargazers({
       "No REMOTION_GITHUB_TOKEN environment variable found. Using the GitHub REST API instead of GraphQL, which has a lower rate-limit and does not show the star dates.",
     );
 
-    let page = 0;
+    let page = 1;
 
     for (let i = 0; i < Math.ceil(starCount / REST_PER_PAGE); i++) {
       const stars = await fetchPageViaRest({
