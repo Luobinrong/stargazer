@@ -96,7 +96,7 @@ export const fetchViaGraphQl = async ({
   }
 
   const { edges } = json.data.repository.stargazers;
-  const lastCursor = edges[edges.length - 1].cursor;
+  const lastCursor = edges.length > 0 ? edges[edges.length - 1].cursor : null;
 
   const page: Stargazer[] = edges.map((edge) => {
     return {
